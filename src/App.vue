@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Counter v-for="(item, index) in forLength" v-bind:item="item"  v-bind:key="index" v-bind:index="index"></Counter>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Counter from "./counter"
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+
+   export default {
+   name:"app",
+     components: {Counter},
+     data(){
+      return{
+        forLength:new Array(3)
+     }
+     }
+
+   }
+
 </script>
 
 <style>
@@ -25,4 +30,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+  button {
+    font-size: 30px;
+    margin: 30px;
+  }
 </style>
