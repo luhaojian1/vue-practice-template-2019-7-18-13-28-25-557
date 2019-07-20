@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <Counter v-for="(item, index) in forLength" v-bind:item="item"  v-bind:key="index" v-bind:index="index"></Counter>
+    <span>计算器数量：</span>
+    <input type="tel" v-model="countNumber">
+    <p>{{countNumber}}</p>
+   <CounterGroup :counterNum = "parseInt(countNumber) || 0"></CounterGroup>
   </div>
 </template>
 
 <script>
-  import Counter from "./counter"
 
+  import CounterGroup from "./components/CounterGroup"
 
    export default {
    name:"app",
-     components: {Counter},
+     components: {CounterGroup},
      data(){
       return{
-        forLength:new Array(3)
+        countNumber:0
      }
      }
 
