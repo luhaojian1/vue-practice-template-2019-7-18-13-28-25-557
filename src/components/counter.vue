@@ -1,32 +1,36 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div>
-        <button v-on:click="decrease"> - </button>
+        <span>{{counterId}}</span>
+        <button v-on:click="decrease"> -</button>
         <span>{{ count }}</span>
-        <button v-on:click="increase"> + </button>
+        <button v-on:click="increase"> +</button>
     </div>
 
 </template>
 
 <script>
     export default {
-        name:"Counter",
-        data(){
+        name: "Counter",
+        data() {
             return {
-                count : 0,
-                message : "hello"
+                count: 0,
             }
         },
-        methods:{
-            decrease(){
+        methods: {
+            decrease() {
                 this.count--;
-            } ,
-            increase(){
+                this.$emit("child-count-change",this.count,this.counterId);
+            },
+            increase() {
                 this.count++;
+                this.$emit("child-count-change",this.count,this.counterId);
             }
-        }
+        },
+        props:{'counterId':Number}
+
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>
