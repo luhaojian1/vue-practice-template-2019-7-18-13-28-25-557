@@ -19,14 +19,14 @@
         methods: {
             decrease() {
                 this.count--;
-                this.$emit("child-count-change",this.count,this.counterId);
+                this.$emit("child-count-change", this.count, this.counterId);
             },
             increase() {
                 this.count++;
-                this.$emit("child-count-change",this.count,this.counterId);
+                this.$emit("child-count-change", this.count, this.counterId);
             }
         },
-        props:{'counterId':Number}
+        props: {'counterId': Number}
 
     }
 </script>
