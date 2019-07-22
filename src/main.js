@@ -14,14 +14,14 @@ const store = new Vuex.Store({
         getSum:state => state.sum,
     },
     mutations:{
-        increment() {
-            this.state.sum++;
+        increment(state) {
+            state.sum++;
         },
-        decrement() {
-            this.state.sum--;
+        decrement(state) {
+            state.sum--;
         },
-        resetSum(count){
-            this.state.sum -= parseInt(count);
+        resetSum(state,payload){
+            state.sum -= payload.count;
         }
     }
 });

@@ -12,7 +12,7 @@
         name: "Counter",
         data() {
             return {
-                count:0,
+                count: 0,
             }
         },
         methods: {
@@ -28,7 +28,8 @@
 
         },
         beforeDestroy() {
-             this.$store.commit('resetSum',this.count);
+            //this.$store.sum -= this.count;
+            this.$store.commit('resetSum',{count:this.count});
         }
 
     }
