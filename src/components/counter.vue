@@ -1,6 +1,5 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div>
-        <span>{{counterId}}</span>
         <button v-on:click="decrease"> -</button>
         <span>{{ count }}</span>
         <button v-on:click="increase"> +</button>
@@ -13,20 +12,24 @@
         name: "Counter",
         data() {
             return {
-                count: 0,
+                count:0,
             }
         },
         methods: {
             decrease() {
                 this.count--;
-                this.$emit("child-count-change", this.count, this.counterId);
+                this.$store.commit('decrement');
+
             },
             increase() {
                 this.count++;
-                this.$emit("child-count-change", this.count, this.counterId);
-            }
+                this.$store.commit('increment');
+            },
+
         },
-        props: {'counterId': Number}
+        beforeDestroy() {
+             this.$store.commit('resetSum',this.count);
+        }
 
     }
 </script>

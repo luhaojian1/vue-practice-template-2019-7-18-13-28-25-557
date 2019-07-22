@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <span>计算器数量：</span>
-        <input type="tel" v-model="countNumber">
+        <input type="number" v-model="countNumber">
         <CounterSum :counterNum="parseInt(countNumber) || 0"></CounterSum>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <CounterGroup :counterNum="parseInt(counterNum) || 0" v-on:getCounterSum="setCounterSum"></CounterGroup>
+        <CounterGroup :counterNum="parseInt(counterNum) || 0" ></CounterGroup>
         <span>CounterSum = {{counterSum}}</span>
     </div>
 </template>
@@ -14,14 +14,9 @@
         props: {
             counterNum: Number
         },
-        data() {
-            return {
-                counterSum: 0
-            }
-        },
-        methods: {
-            setCounterSum: function (sum) {
-                this.counterSum = sum;
+        computed:{
+            counterSum(){
+                return this.$store.getters.getSum;
             }
         },
 
